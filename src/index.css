@@ -15,4 +15,8 @@ body {
   .reset {
     @apply rounded-lg px-4 py-2 bg-gray-900 text-gray-100;
   }
+  .navbar {
+    @apply p-2 flex gap-1 items-center justify-center hover:bg-white hover:text-black transition-all duration-200 ease-in-out 
+    hover:animate-pulse rounded-md text-sm xl:text-base font-semibold;
+  }
 }
