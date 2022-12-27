@@ -7,7 +7,7 @@ import MovieDetail from "./components/MovieDetail";
 import PageNotFound from "./components/PageNotFound";
 import axios from "axios";
 
-const movieAPI = "http://www.omdbapi.com";
+const movieAPI = "https://www.omdbapi.com";
 axios.defaults.baseURL = movieAPI;
 
 const App = () => {
