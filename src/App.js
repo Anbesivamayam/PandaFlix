@@ -5,6 +5,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MovieDetail from "./components/MovieDetail";
 import PageNotFound from "./components/PageNotFound";
+import axios from "axios";
+
+const movieAPI = "http://www.omdbapi.com";
+axios.defaults.baseURL = movieAPI;
 
 const App = () => {
   return (
@@ -18,7 +22,7 @@ const App = () => {
           <Route path="/movie/:imdbID" element={<MovieDetail />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        <footer>
+        <footer className='bg-black'>
           <Footer />
         </footer>
       </main>

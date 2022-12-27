@@ -10,18 +10,15 @@ const Home = () => {
   const movieText = name;
   const dispatch = useDispatch();
   useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await movieApi
-        .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
-        .then((res) => {
-          dispatch(addMovies(res.data));
-          console.log("API response", res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    fetchMovies();
+    axios
+      .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
+      .then((res) => {
+        dispatch(addMovies(res.data));
+        // console.log("API response", res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
     <div>
@@ -39,7 +36,7 @@ export default Home;
 // useEffect(() => {
 //   const movieText = "Avatar";
 //   const fetchMovies = async () => {
-//     const response = await axios
+//     const response = await movieApi
 //       .get(`?apikey=${APIKey}&s=${movieText}$type=movie`)
 //       .then((res) => console.log("the API response ", res))
 //       .catch((err) => {

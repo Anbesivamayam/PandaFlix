@@ -3,6 +3,6 @@ import moviesReducer from "../features/movieSlice";
 
 export const store = configureStore({
   reducer: {
-    reducer: moviesReducer,
+    movies: moviesReducer,
   },
 });
