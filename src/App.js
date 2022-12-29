@@ -17,11 +17,13 @@ const App = () => {
         <header>
           <Header />
         </header>
+        <section className="h-screen  bg-gray-900">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movie/:imdbID" element={<MovieDetail />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        </section>
         <footer className='bg-black'>
           <Footer />
         </footer>

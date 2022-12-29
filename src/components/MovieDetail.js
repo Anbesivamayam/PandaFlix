@@ -3,11 +3,12 @@ import React, { useEffect } from "react";
 import { APIKey } from "../api/MovieApiKey";
 import { useDispatch, useSelector } from "react-redux";
 import { showAllInfo, showImdbInfo } from "../features/movieSlice";
+import Error404 from "../images/vadivel.jpg"
 
 const MovieDetail = () => {
   const dispatch = useDispatch();
   const imdbInfo = useSelector(showAllInfo);
-  console.log(imdbInfo);
+  // console.log(imdbInfo);
 
   var url = window.location.pathname;
   var id = url.substring(url.lastIndexOf("/") + 1);
@@ -52,7 +53,7 @@ const MovieDetail = () => {
           </div>
         </section>
         <section className="w-full">
-          <img src={imdbInfo.Poster} alt={imdbInfo.title} className="w-5/6" />
+          <img src={imdbInfo.Poster === "N/A" ? Error404 : imdbInfo.Poster } alt={imdbInfo.title} className="w-5/6" />
         </section>
       </main>
     </div>

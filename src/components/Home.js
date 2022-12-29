@@ -3,34 +3,36 @@ import MovieListing from "./MovieListing";
 import axios from "axios";
 import movieApi from "../api/movieApi";
 import { APIKey, name } from "../api/MovieApiKey";
-import { useDispatch } from "react-redux";
-import { addMovies, addSeries } from "../features/movieSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addMovies, addSeries, searchAllInfo } from "../features/movieSlice";
 
 const Home = () => {
-  const movieText = name;
+  // const movieText = name;
+  const search = useSelector(searchAllInfo);
+  // console.log(search);
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
+      .get(`?apiKey=${APIKey}&s=${search}&type=movie`)
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         dispatch(addMovies(res.data));
       })
       .catch((err) => {
-        console.log(err);  
+        console.log(err);
       });
-  }, []);
+  }, [search]);
   useEffect(() => {
     axios
-      .get(`?apiKey=${APIKey}&s=${movieText}&type=series`)
+      .get(`?apiKey=${APIKey}&s=${search}&type=series`)
       .then((res) => {
         // console.log(res.data);
         dispatch(addSeries(res.data));
       })
       .catch((err) => {
-        console.log(err);  
+        console.log(err);
       });
-  }, []);
+  }, [search]);
   return (
     <div>
       <MovieListing />

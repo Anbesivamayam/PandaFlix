@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { getAllMovies, getAllSeries } from "../features/movieSlice";
 import MovieCard from "./MovieCard";
 import SeriesCard from "./SeriesCard";
 
 const MovieListing = () => {
+
   const movies = useSelector(getAllMovies);
   const series = useSelector(getAllSeries);
   // console.log("Fetching all movies",movies);
@@ -22,7 +23,7 @@ const MovieListing = () => {
             return <MovieCard key={index} data={movie} />;
           })
         ) : (
-          <div>
+          <div className="text-white">
             <h3 className="text-center">{movies.Error}</h3>
           </div>
         )}
@@ -36,7 +37,7 @@ const MovieListing = () => {
             return <SeriesCard key={index} data={series} />;
           })
         ) : (
-          <div>
+          <div className="text-white">
             <h3 className="text-center">{series.Error}</h3>
           </div>
         )}

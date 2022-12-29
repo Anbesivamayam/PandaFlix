@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Error404 from "../images/vadivel.jpg"
+
 
 const SeriesCard = ({ data }) => {
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const SeriesCard = ({ data }) => {
           <main className="" onClick={onCardClick}>
             <div className="">
               <img
-                src={data.Poster}
+                src={data.Poster === "N/A" ? Error404 : data.Poster}
                 alt={data.Title}
                 className="h-96 mx-auto "
               />
