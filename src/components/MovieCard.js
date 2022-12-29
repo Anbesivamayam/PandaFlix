@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MovieCard = ({ data }) => {
+  const navigate = useNavigate();
+  const onCardClick = () => {
+    navigate(`/movie/${data.imdbID}`);
+  };
   return (
     <div className="mx-auto flex justify-center items-center cursor-pointer ">
-      {/* <Link to ={}> */}
-      <main className="">     
+      {/* <Link to ={`/movie/${data.imdbID}`}> */}
+      <main className="" onClick={onCardClick}>
         <div className="">
           <img src={data.Poster} alt={data.Title} className="h-96 mx-auto " />
         </div>

@@ -1,2 +1,2 @@
 export const APIKey = "6ad55be2";
-export const name = "Harry";
+export const name = "Friends";

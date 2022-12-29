@@ -4,7 +4,7 @@ import axios from "axios";
 import movieApi from "../api/movieApi";
 import { APIKey, name } from "../api/MovieApiKey";
 import { useDispatch } from "react-redux";
-import { addMovies } from "../features/movieSlice";
+import { addMovies, addSeries } from "../features/movieSlice";
 
 const Home = () => {
   const movieText = name;
@@ -13,11 +13,22 @@ const Home = () => {
     axios
       .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
       .then((res) => {
+        // console.log(res.data);
         dispatch(addMovies(res.data));
-        // console.log("API response", res);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err);  
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get(`?apiKey=${APIKey}&s=${movieText}&type=series`)
+      .then((res) => {
+        // console.log(res.data);
+        dispatch(addSeries(res.data));
+      })
+      .catch((err) => {
+        console.log(err);  
       });
   }, []);
   return (
