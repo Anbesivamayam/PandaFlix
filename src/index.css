@@ -3,12 +3,7 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", sans-serif;
 }
 
 @layer components {
@@ -16,7 +11,13 @@ body {
     @apply rounded-lg px-4 py-2 bg-gray-900 text-gray-100;
   }
   .navbar {
-    @apply p-2 flex gap-1 items-center justify-center hover:bg-white hover:text-black transition-all duration-200 ease-in-out 
-    hover:animate-pulse rounded-md text-sm xl:text-base font-semibold;
+    @apply p-2 flex gap-1 items-center justify-center hover:bg-red-700 hover:text-black transition-all duration-200 ease-in-out 
+    rounded-md text-sm xl:text-base font-semibold;
+  }
+  .miniTitle {
+    @apply flex justify-center items-center gap-1 text-[#9CAAB3] font-medium tracking-wide text-sm md:text-base
+  }
+  .subTitle {
+    @apply  text-[#9CAAB3] font-medium tracking-wide text-sm md:text-base xl:text-xl
   }
 }

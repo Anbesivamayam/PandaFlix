@@ -7,9 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addMovies, addSeries, searchAllInfo } from "../features/movieSlice";
 
 const Home = () => {
-  // const movieText = name;
   const search = useSelector(searchAllInfo);
-  // console.log(search);
   const dispatch = useDispatch();
   useEffect(() => {
     axios
@@ -34,7 +32,7 @@ const Home = () => {
       });
   }, [search]);
   return (
-    <div>
+    <div className="h-screen">
       <MovieListing />
     </div>
   );

@@ -17,7 +17,7 @@ const App = () => {
         <header>
           <Header />
         </header>
-        <section className="h-screen bg-gray-900">
+        <section className="h-screen bg-[#0E0F11]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/movie/:imdbID" element={<MovieDetail />} />

@@ -7,30 +7,32 @@ import SeriesCard from "./SeriesCard";
 const MovieListing = () => {
   const movies = useSelector(getAllMovies);
   const series = useSelector(getAllSeries);
-  // console.log("Fetching all movies",movies);
-
   return (
-    <div>
+    <div className="">
       <main>
-        <h2 className="text-bold text-xl px-2 py-2 text-white bg-gray-900">
-          Movie List
+        <h2 className="mx-auto px-6 py-4 text-bold text-2xl font-medium text-white bg-[#0E0F11]">
+          Movies List
         </h2>
       </main>
-      <section className=" bg-gray-900  mx-auto p-3 py-4 w-full grid md:grid-cols-3 lg:grid-cols-4 items-center justify-center gap-4">
+      <section className="bg-[#0E0F11] mx-auto px-5 py-4 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 
+       justify-center gap-4">
         {movies.Response === "True" ? (
           movies.Search.map((movie, index) => {
             return <MovieCard key={index} data={movie} />;
           })
         ) : (
-          <div className="text-white">
+          <div className="text-white ">
             <h3 className="text-center">{movies.Error}</h3>
           </div>
         )}
       </section>
-      <h2 className="text-bold text-xl px-2 py-2 text-white bg-gray-900">
-        Series List
-      </h2>
-      <section className=" bg-gray-900 pb-2 mx-auto p-3 py-4 w-full grid md:grid-cols-3 lg:grid-cols-4 items-center justify-center gap-4">
+      <main>
+        <h2 className="mx-auto px-6 py-4 text-bold text-2xl font-medium text-white bg-[#0E0F11]">
+          Series List
+        </h2>
+      </main>
+      <section className="pb-2  mx-auto p-3 py-4 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center 
+      justify-center gap-4 bg-[#0E0F11]">
         {series.Response === "True" ? (
           series.Search.map((series, index) => {
             return <SeriesCard key={index} data={series} />;
