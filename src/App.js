@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
@@ -17,16 +17,14 @@ const App = () => {
         <header>
           <Header />
         </header>
-        <section className="h-screen  bg-gray-900">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movie/:imdbID" element={<MovieDetail />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+        <section className="h-screen bg-gray-900">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/movie/:imdbID" element={<MovieDetail />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
         </section>
-        <footer className='bg-black'>
-          <Footer />
-        </footer>
+        <footer className="bg-black">{/* <Footer /> */}</footer>
       </main>
     </div>
   );

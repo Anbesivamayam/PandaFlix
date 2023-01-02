@@ -5,7 +5,6 @@ import MovieCard from "./MovieCard";
 import SeriesCard from "./SeriesCard";
 
 const MovieListing = () => {
-
   const movies = useSelector(getAllMovies);
   const series = useSelector(getAllSeries);
   // console.log("Fetching all movies",movies);
