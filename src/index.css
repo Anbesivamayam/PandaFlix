@@ -5,6 +5,17 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+/*! Styles for hiding scrollbar  */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 @layer components {
   .reset {
