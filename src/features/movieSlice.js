@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  searchIMDB: "Harry",
+  searchIMDB: "",
   movies: [],
   series: [],
   movieInfo: [],
@@ -27,7 +27,7 @@ export const movieSlice = createSlice({
 });
 export const { searchInfo, addMovies, addSeries, showImdbInfo } =
   movieSlice.actions;
-export const searchAllInfo = (state) => state.movies.searchIMDB;
+export const searchAllInfo_Value = (state) => state.movies.searchIMDB;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllSeries = (state) => state.movies.series;
 export const showAllInfo = (state) => state.movies.movieInfo;

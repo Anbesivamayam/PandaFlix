@@ -9,7 +9,8 @@ const SeriesCard = ({ data }) => {
   };
   return (
     <div>
-      <div className="mx-auto flex justify-center items-center cursor-pointer ">
+      <div className="mx-auto flex justify-center items-center cursor-pointer hover:opacity-[0.6] hover:bg-blend-color-dodge 
+      transistion-all ease-in-out duration-1000 hover:translate-scale-">
       <main className="flex flex-col h-full" onClick={onCardClick}>
         <div className="text-center">
           <img

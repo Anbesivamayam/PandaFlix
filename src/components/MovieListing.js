@@ -31,7 +31,7 @@ const MovieListing = () => {
           Series List
         </h2>
       </main>
-      <section className="pb-2  mx-auto p-3 py-4 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center 
+      <section className="pb-2 mx-auto p-3 py-4 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center 
       justify-center gap-4 bg-[#0E0F11]">
         {series.Response === "True" ? (
           series.Search.map((series, index) => {

@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import MovieDetail from "./components/MovieDetail";
 import PageNotFound from "./components/PageNotFound";
 import axios from "axios";
+import MovieListing from "./components/MovieListing";
+import MovieWorld from "./components/MovieWorld";
 
 const movieAPI = "https://www.omdbapi.com";
 axios.defaults.baseURL = movieAPI;
@@ -17,9 +19,10 @@ const App = () => {
         <header>
           <Header />
         </header>
-        <section className="h-screen bg-[#0E0F11]">
+        <section className="bg-[#0E0F11]">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<MovieWorld />} />
+            <Route path="/searchMovies" element={<Home />} />
             <Route path="/movie/:imdbID" element={<MovieDetail />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

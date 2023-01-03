@@ -3,27 +3,34 @@ import { WalletCheckO } from "lovedicons/dist/outline";
 import { CiSearch } from "react-icons/ci"; // icons
 import { searchAllInfo, searchInfo } from "../features/movieSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSearchInput = () => {
     if (searchQuery.trim() === "") {
       alert("Type something to search in the Database");
     } else {
-      dispatch(searchInfo(searchQuery))
+      dispatch(searchInfo(searchQuery));
+      navigate(`/searchMovies`);
     }
-  }
+  };
 
   return (
     <main className="w-full">
       <header>
         <div className="py-1 lg:py-3 xl:py-6 flex justify-between items-center w-full bg-[#151619]">
-          <div className="px-2 mx-1 flex items-center gap-1 rounded-lg">
-            {/* <span className="inline-block text-white bounce"><ImBooks size={28}/></span> */}
+          <div
+            className="px-2 mx-1 flex items-center gap-1 rounded-lg"
+            onClick={() => {
+              navigate("/")
+              setSearchQuery("");
+            }}
+          >
             <a
-              // href="https://www.npmjs.com/package/lovedicons"
               target={"_blank"}
               className="px-1 inline-flex justify-center items-center gap-2 text-white cursor-pointer md:tracking-[5px]"
             >
@@ -46,19 +53,20 @@ const Header = () => {
             </div>
             <div className="flex justify-start items-center mr-3">
               <input
-                className="xs:w-28 md:w-full p-1 md:p-1.5 rounded-lg border-0 bg-[#F5F7FB] text-gray-700 
-                focus:text-gray-700 focus:outline-gray-100 text-sm md:placeholder:text-xs  tracking-widest"
+                className="xs:w-28 md:w-full p-1 md:p-1.5 rounded-lg  border-0 bg-[#F5F7FB] text-gray-700 
+                focus:text-gray-700 focus:outline-gray-100 text-sm md:placeholder:text-xs tracking-widest"
                 type="search"
                 placeholder="Search movies/shows"
+                value={searchQuery}
                 onChange={(e) => {
-                  setSearchQuery(e.target.value)
+                  setSearchQuery(e.target.value);
                 }}
               />
               <span className="flex p-2 text-2xl text-gray-700 cursor-pointer">
                 <CiSearch
                   className="text-white"
                   onClick={() => {
-                    handleSearchInput()
+                    handleSearchInput();
                   }}
                 />
               </span>

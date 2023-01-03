@@ -8,11 +8,11 @@ body {
 
 @layer components {
   .reset {
-    @apply rounded-lg px-4 py-2 bg-gray-900 text-gray-100;
+    @apply rounded-lg px-4 py-2 bg-black hover:bg-red-700 duration-700 ease-in-out transition-all text-gray-100;
   }
   .navbar {
-    @apply p-2 flex gap-1 items-center justify-center hover:bg-red-700 hover:text-black transition-all duration-200 ease-in-out 
-    rounded-md text-sm xl:text-base font-semibold;
+    @apply p-2 flex gap-1 items-center justify-center hover:bg-[#E53935] hover:text-black transition-all duration-500 ease-in-out 
+     text-sm xl:text-base font-semibold;
   }
   .miniTitle {
     @apply flex justify-center items-center gap-1 text-[#9CAAB3] font-medium tracking-wide text-sm md:text-base

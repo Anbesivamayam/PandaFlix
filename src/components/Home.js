@@ -4,11 +4,17 @@ import axios from "axios";
 import movieApi from "../api/movieApi";
 import { APIKey, name } from "../api/MovieApiKey";
 import { useDispatch, useSelector } from "react-redux";
-import { addMovies, addSeries, searchAllInfo } from "../features/movieSlice";
+import {
+  addMovies,
+  addSeries,
+  searchAllInfo,
+  searchAllInfo_Value,
+} from "../features/movieSlice";
 
 const Home = () => {
-  const search = useSelector(searchAllInfo);
+  const search = useSelector(searchAllInfo_Value);
   const dispatch = useDispatch();
+
   useEffect(() => {
     axios
       .get(`?apiKey=${APIKey}&s=${search}&type=movie`)
@@ -24,7 +30,6 @@ const Home = () => {
     axios
       .get(`?apiKey=${APIKey}&s=${search}&type=series`)
       .then((res) => {
-        // console.log(res.data);
         dispatch(addSeries(res.data));
       })
       .catch((err) => {
