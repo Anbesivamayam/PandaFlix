@@ -17,7 +17,7 @@ const MovieDetail = () => {
 
   var url = window.location.pathname;
   var id = url.substring(url.lastIndexOf("/") + 1);
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     axios
@@ -30,44 +30,44 @@ const MovieDetail = () => {
       });
   }, []);
   return (
-    <div className="bg-[#0E0F11] w-full ">
-      <main className="mx-auto flex flex-col-reverse gap-3 px-6 py-7 md:px-8 md:py-12 xl:py-16 md:grid md:grid-cols-4 items-center justify-center text-white">
-        <section className="p-3 rounded-xl shadow-xl flex flex-col justify-center col-span-3 gap-3 font-light bg-[#151619]">
+    <div className="dark:bg-[#0E0F11] bg-[#F7F7F7] w-full ">
+      <main className="mx-auto flex flex-col-reverse gap-3 px-6 py-7 md:px-8 md:py-12 xl:py-16 md:grid md:grid-cols-4 items-center justify-center text-black dark:text-white">
+        <section className="p-3 rounded-xl shadow-xl flex flex-col justify-center col-span-3 gap-3 dark:font-light bg-[#F7F7F7] dark:bg-[#151619]">
           <h2 className="text-2xl py-2 md:text-5xl xl:text-6xl tracking-normal">
             {imdbInfo.Title}
           </h2>
           <div className="flex flex-wrap py-1 gap-2 tracking-wide xl:text-xl">
-            <p className="flex justify-center font-medium text-yellow-500 ">
+            <p className="flex justify-center font-medium dark:text-yellow-500 ">
               <span className="miniTitle">
                 IMDB rating <FcRating />:
               </span>
               {imdbInfo.imdbRating}
             </p>
-            <p className="flex justify-center items-center font-medium text-yellow-500">
+            <p className="flex justify-center items-center font-medium dark:text-yellow-500">
               <span className="miniTitle">
                 IMDB Votes <GoThumbsup />:
               </span>
               {imdbInfo.imdbVotes}
             </p>
-            <p className="flex  justify-center items-center font-medium text-yellow-500">
+            <p className="flex  justify-center items-center font-medium dark:text-yellow-500">
               <span className="miniTitle">
                 Metascores <MdCreditScore />:
               </span>
               {imdbInfo.Metascore}
             </p>
-            <p className="flex justify-center items-center font-medium text-yellow-500">
+            <p className="flex justify-center items-center font-medium dark:text-yellow-500">
               <span className="miniTitle">
                 Runtime <RiMovieFill />:
               </span>
               {imdbInfo.Runtime}
             </p>
-            <p className="flex justify-center items-center font-medium text-yellow-500">
+            <p className="flex justify-center items-center font-medium dark:text-yellow-500">
               <span className="miniTitle">
                 Released Date <AiFillCalendar />:
               </span>
               {imdbInfo.Released}
             </p>
-            <p className="flex justify-center items-center font-medium text-yellow-500">
+            <p className="flex justify-center items-center font-medium dark:text-yellow-500">
               <span className="miniTitle">
                 Rating <FaChild />:
               </span>
@@ -80,53 +80,53 @@ const MovieDetail = () => {
           <div className="flex flex-col gap-3 xl:gap-7 xl:py-8 ">
             <p className="subTitle ">
               Director
-              <span className="text-white font-normal">
+              <span className="font-medium dark:font-normal text-black dark:text-white">
                 : {imdbInfo.Director}
               </span>
             </p>
-            <p className="subTitle">
+            <p className="subTitle ">
               Writer
-              <span className="text-white font-normal">
+              <span className="font-medium dark:font-normal text-black dark:text-white">
                 : {imdbInfo.Writer}
               </span>
             </p>
             <p className="subTitle">
               Stars
-              <span className="text-white font-normal">
+              <span className="font-medium dark:font-normal text-black dark:text-white">
                 : {imdbInfo.Actors}
               </span>
             </p>
             <p className="subTitle">
               Generes
-              <span className="text-white font-normal">: {imdbInfo.Genre}</span>
+              <span className="font-medium dark:font-normal text-black dark:text-white">: {imdbInfo.Genre}</span>
             </p>
             <p className="subTitle">
               Language
-              <span className="text-white font-normal">
+              <span className="font-medium dark:font-normal text-black dark:text-white">
                 : {imdbInfo.Language}
               </span>
             </p>
             <p className="subTitle">
               Awards
-              <span className="text-white font-normal">
+              <span className="font-medium dark:font-normal text-black dark:text-white">
                 : {imdbInfo.Awards}
               </span>
             </p>
             <p className="subTitle">
               Box office
-              <span className="text-white font-normal">
+              <span className="font-medium dark:font-normal text-black dark:text-white">
                 : {imdbInfo.BoxOffice}
               </span>
             </p>
             <p className="subTitle">
               Country
-              <span className="text-white font-normal">
+              <span className="font-medium dark:font-normal text-black dark:text-white">
                 : {imdbInfo.Country}
               </span>
             </p>
           </div>
         </section>
-        <section className="w-full flex justify-center items-center p-2 h-full shadow-2xl ">
+        <section className="w-full flex justify-center items-center p-2 dark:h-full rounded-xl shadow-2xl ">
           <img
             src={imdbInfo.Poster === "N/A" ? Error404 : imdbInfo.Poster}
             alt={imdbInfo.title}

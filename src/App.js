@@ -13,13 +13,14 @@ const movieAPI = "https://www.omdbapi.com";
 axios.defaults.baseURL = movieAPI;
 
 const App = () => {
+  const [darkTheme, setDarkTheme] = useState(true);
   return (
     <div>
-      <main className="">
-        <header>
-          <Header />
+      <main className={darkTheme ? "dark" : ""}>
+        <header className="dark:bg-[#151619] bg-[#FCFCFC]">
+          <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         </header>
-        <section className="bg-[#0E0F11]">
+        <section className="dark:bg-[#0E0F11] bg-[#F7F7F7] transition-shadow duration-500">
           <Routes>
             <Route path="/" element={<MovieWorld />} />
             <Route path="/searchMovies" element={<Home />} />

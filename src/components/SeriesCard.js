@@ -9,8 +9,8 @@ const SeriesCard = ({ data }) => {
   };
   return (
     <div>
-      <div className="mx-auto flex justify-center items-center cursor-pointer hover:opacity-[0.6] hover:bg-blend-color-dodge 
-      transistion-all ease-in-out duration-1000 hover:translate-scale-">
+      <div className="mx-auto flex justify-center items-center cursor-pointer hover:opacity-[0.8] dark:hover:opacity-[0.5] 
+      hover:bg-blend-color-dodge transistion-all ease-in-out duration-1000 ">
       <main className="flex flex-col h-full" onClick={onCardClick}>
         <div className="text-center">
           <img
@@ -19,9 +19,10 @@ const SeriesCard = ({ data }) => {
             className=" h-72 md:h-96"
           />
         </div>
-        <div className="px-2 py-3 mx-auto flex flex-col w-full h-20 bg-[#151619] text-white tracking-wide">
-          <p className="font-light text-sm">{data.Title}</p>
-          <p className="py-1 pb-2 text-[#9CAAB3] text-sm">Released Date: {data.Year}</p>
+        <div className="px-2 py-3 mx-auto flex flex-col w-full h-20 text-black dark:text-white 
+        tracking-wide border-[1px] dark:border-none">
+          <p className="font-semibold dark:font-light text-sm">{data.Title}</p>
+          <p className="py-1 pb-2 text-black dark:text-[#9CAAB3] text-sm">Released Date: {data.Year}</p>
         </div>
       </main>
       </div>

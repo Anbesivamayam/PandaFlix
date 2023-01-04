@@ -13,6 +13,22 @@ const MovieWorld = () => {
   const [topRated, setTopRated] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [boolean, setBoolean] = useState(true);
+
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
+    if (windowWidth >= "490") {
+      setBoolean(true);
+    } else {
+      setBoolean(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowWidth);
+    updateWindowWidth();
+  });
 
   // Upcoming Movies
   useEffect(() => {
@@ -67,10 +83,9 @@ const MovieWorld = () => {
       });
   }, []);
   return (
-    <div className="h-full text-white">
-      {console.log(nowPlaying)}
-      {/* {JSON.stringify(nowPlaying.poster_path)} */}
+    <div className="h-full text-black dark:text-white dark:font-normal font-semibold ">
       <section className="">
+        {console.log(window.innerWidth)}
         <Carousel
           showThumbs={false}
           autoPlay={true}
@@ -79,7 +94,7 @@ const MovieWorld = () => {
           infiniteLoop={true}
           showStatus={false}
           hideArrow={false}
-          showDots={false}
+          showIndicators={boolean}
         >
           {/* <main className=""> */}
           {nowPlaying.map((data, index) => (
@@ -87,20 +102,22 @@ const MovieWorld = () => {
               <img
                 src={`https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`}
                 alt="title"
-                className="w-full h-full pb-10 md:pb-3 opacity-[0.4] "
+                className="w-full h-full pb-16 md:pb-3 dark:opacity-[0.4] "
               />
-              <div className="mx-auto px-10 flex flex-col text-start absolute bottom-7 ">
-                <p className="text-2xl md:text-7xl"> {data.original_title}</p>
-                <p className="text-2xl py-2 md:text-xl tracking-wide font-light">
+              <div className="mx-auto px-6 md:px-10  md:pb-2 flex flex-col text-start absolute bottom-8 ">
+                <p className="xs:text-xl md:text-3xl lg:text-7xl">
+                  {data.original_title}
+                </p>
+                <p className="text-xs py-2 md:text-base lg:text-xl tracking-wide dark:font-light">
                   {data.overview}
                 </p>
-                <p className="text-2xl py-2 md:text-xl ">
+                <p className="text-xs md:text-base lg:text-xl">
                   Released Date: {data.release_date}
                 </p>
-                <p className="flex justify-start items-center text-2xl py-2 md:text-xl">
+                <p className="flex justify-start items-center  md:py-2 text-xs  md:text-base lg:text-xl">
                   Rating : {data.vote_average}{" "}
-                  <span className="">
-                    <AiFillStar className="text-yellow-400" />
+                  <span className="ml-1">
+                    <AiFillStar size={24} className="text-yellow-400" />
                   </span>
                 </p>
               </div>
@@ -109,7 +126,6 @@ const MovieWorld = () => {
           {/* </main> */}
         </Carousel>
       </section>
-      {/* {Rendered movies} */}
       <main>
         <section>
           <h3 className="px-5 py-3">Upcoming Movies</h3>
@@ -129,7 +145,7 @@ const MovieWorld = () => {
         </section>
         <section>
           <h3 className="px-5 py-3">Top Rated</h3>
-          <main className="text-white flex pb-5 px-5 gap-2 overflow-x-auto scrollbar">
+          <main className=" flex pb-5 px-5 gap-2 overflow-x-auto scrollbar">
             {topRated.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}
