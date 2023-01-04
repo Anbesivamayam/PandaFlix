@@ -9,6 +9,7 @@ const PageNotFound = () => {
       <div className="flex flex-col justify-center items-center gap-3">
         <p className="text-5xl pt-3 font-semibold tracking-widest">404</p>
         <p className="tracking-widest">Look like you're lost in the Wilderness.</p>
+        <p className="tracking-widest">Some Pages are under Production Come back soon</p>
         <button className="reset" onClick={()=> {
           navigate('/')
         }}>Take me to Home Page</button>

@@ -23,7 +23,8 @@ const MovieListing = () => {
             return <MovieCard key={index} data={movie} />;
           })
         ) : (
-          <div className="text-white ">
+        
+          <div className="dark:text-white text-black">
             <h3 className="text-center">{movies.Error}</h3>
           </div>
         )}
@@ -42,7 +43,7 @@ const MovieListing = () => {
             return <SeriesCard key={index} data={series} />;
           })
         ) : (
-          <div className="text-white">
+          <div className="text-black dark:text-white">
             <h3 className="text-center">{series.Error}</h3>
           </div>
         )}

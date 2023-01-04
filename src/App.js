@@ -6,13 +6,19 @@ import Footer from "./components/Footer";
 import MovieDetail from "./components/MovieDetail";
 import PageNotFound from "./components/PageNotFound";
 import axios from "axios";
-import MovieListing from "./components/MovieListing";
 import MovieWorld from "./components/MovieWorld";
+import MovieInformation from "./components/MovieInformation";
+import MovieLibrary from "./pages/MovieLibrary";
+import TvLibrary from "./pages/TvLibrary";
 
 const movieAPI = "https://www.omdbapi.com";
 axios.defaults.baseURL = movieAPI;
 
 const App = () => {
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [topRated, setTopRated] = useState([]);
+  const [nowPlaying, setNowPlaying] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
   const [darkTheme, setDarkTheme] = useState(true);
   return (
     <div>
@@ -22,13 +28,31 @@ const App = () => {
         </header>
         <section className="dark:bg-[#0E0F11] bg-[#F7F7F7] transition-shadow duration-500">
           <Routes>
-            <Route path="/" element={<MovieWorld />} />
+            <Route
+              path="/"
+              element={
+                <MovieWorld
+                  popularMovies={popularMovies}
+                  setPopularMovies={setPopularMovies}
+                  topRated={topRated}
+                  setTopRated={setTopRated}
+                  nowPlaying={nowPlaying}
+                  setNowPlaying={setNowPlaying}
+                  upcoming={upcoming}
+                  setUpcoming={setUpcoming}
+                />
+              }
+            />
+            <Route path="/movielibrary" element={<MovieLibrary upcoming={upcoming}
+                  setUpcoming={setUpcoming} />} />
+            <Route path="/serieslibrary" element={<TvLibrary />} />
+            {/* <Route path="movie/:id" element={<MovieInformation />} /> */}
             <Route path="/searchMovies" element={<Home />} />
             <Route path="/movie/:imdbID" element={<MovieDetail />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </section>
-        <footer className="bg-black">{/* <Footer /> */}</footer>
+        <footer className="dark:bg-[#151619] bg-[#F7F7F7]"><Footer /></footer>
       </main>
     </div>
   );

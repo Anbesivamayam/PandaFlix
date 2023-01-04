@@ -5,29 +5,36 @@ import { AiFillStar } from "react-icons/ai";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
-
 import { data } from "autoprefixer";
+import { useNavigate } from "react-router-dom";
 
-const MovieWorld = () => {
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [topRated, setTopRated] = useState([]);
-  const [nowPlaying, setNowPlaying] = useState([]);
-  const [upcoming, setUpcoming] = useState([]);
+const MovieWorld = ({
+  popularMovies,
+  setPopularMovies,
+  topRated,
+  setTopRated,
+  nowPlaying,
+  upcoming,
+  setNowPlaying,
+  setUpcoming,
+}) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [boolean, setBoolean] = useState(true);
+  // const [boolean, setBoolean] = useState(true);
 
-  const updateWindowWidth = () => {
-    setWindowWidth(window.innerWidth);
-    if (windowWidth >= "490") {
-      setBoolean(true);
-    } else {
-      setBoolean(false);
-    }
-  };
+  // const updateWindowWidth = () => {
+  //   setWindowWidth(window.innerWidth);
+  //   // if (windowWidth >= "490") {
+  //   //   setBoolean(true);
+  //   // } else {
+  //   //   setBoolean(false);
+  //   // }
+  // };
+  const navigate = useNavigate();
 
   useEffect(() => {
-    window.addEventListener("resize", updateWindowWidth);
-    updateWindowWidth();
+    window.addEventListener("resize", setWindowWidth(window.innerWidth));
+    // console.log(windowWidth);
+    console.log(topRated);
   });
 
   // Upcoming Movies
@@ -73,7 +80,7 @@ const MovieWorld = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/tv/top_rated?api_key=f870259c0e2838b7a85074234dc46809&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=f870259c0e2838b7a85074234dc46809&language=en-US&page=1`
       )
       .then((response) => {
         setTopRated(response.data.results);
@@ -94,21 +101,27 @@ const MovieWorld = () => {
           infiniteLoop={true}
           showStatus={false}
           hideArrow={false}
-          showIndicators={boolean}
+          showIndicators={false}
         >
-          {/* <main className=""> */}
           {nowPlaying.map((data, index) => (
-            <div key={index} className=" relative w-full text-white">
+            <div
+              key={index}
+              className=" relative w-full text-white cursor-pointer "
+              onClick={() => {
+                // navigate(`/movie/${data.id}`);
+                navigate(`*`);
+              }}
+            >
               <img
                 src={`https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`}
                 alt="title"
                 className="w-full h-full pb-16 md:pb-3 dark:opacity-[0.4] "
               />
-              <div className="mx-auto px-6 md:px-10  md:pb-2 flex flex-col text-start absolute bottom-8 ">
-                <p className="xs:text-xl md:text-3xl lg:text-7xl">
+              <div className="mx-auto px-6 md:px-10 pb-8 md:pb-2 flex flex-col text-start absolute bottom-8 ">
+                <p className="text-2xl md:text-3xl lg:text-7xl">
                   {data.original_title}
                 </p>
-                <p className="text-xs py-2 md:text-base lg:text-xl tracking-wide dark:font-light">
+                <p className="hidden md:flex text-xs py-2 md:text-base lg:text-xl tracking-wide dark:font-light">
                   {data.overview}
                 </p>
                 <p className="text-xs md:text-base lg:text-xl">
@@ -123,13 +136,12 @@ const MovieWorld = () => {
               </div>
             </div>
           ))}
-          {/* </main> */}
         </Carousel>
       </section>
       <main>
         <section>
           <h3 className="px-5 py-3">Upcoming Movies</h3>
-          <main className="flex pb-2 px-5 gap-2 overflow-x-auto scrollbar">
+          <main className="flex pb-2  px-5 gap-2 overflow-x-auto scrollbar">
             {upcoming.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}
@@ -137,7 +149,7 @@ const MovieWorld = () => {
         </section>
         <section>
           <h3 className="px-5 py-3">Now Playing</h3>
-          <main className="flex pb-5 px-5 gap-2 overflow-x-auto scrollbar">
+          <main className="flex pb-5  px-5 gap-2 overflow-x-auto scrollbar">
             {nowPlaying.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}

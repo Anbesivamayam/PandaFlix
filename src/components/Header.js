@@ -59,15 +59,16 @@ const Header = ({ darkTheme, setDarkTheme }) => {
           <div className="flex flex-wrap justify-center items-center">
             <div className="hidden md:flex ">
               <ul className="hidden md:flex px-2 mx-1 dark:text-white text-black cursor-pointer gap-3">
-                <li className="navbar">
-                  <a href="#">Movies</a>
+                <li className="navbar" onClick={()=>{navigate('/')}}>
+                  Home
                 </li>
-                <li className="navbar">
-                  <a href="#">Series</a>
+                <li className="navbar" onClick={()=>{navigate('/movielibrary')}}>
+                  Movies
                 </li>
-                <li className="navbar">
-                  <a href="#">IMDB</a>
+                <li className="navbar" onClick={()=>{navigate('/serieslibrary')}}>
+                Series
                 </li>
+               
               </ul>
             </div>
             <div className="flex justify-start items-center">
