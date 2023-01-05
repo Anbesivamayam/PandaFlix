@@ -2,9 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.bounce {
+  animation: bounce 1s infinite alternate;
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+} 
+
+
+ /* scrollbar */
+ /* width */
+::-webkit-scrollbar {
+  width: 12px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:  #383636; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fdfdfd; 
+  border-radius: 80px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:#b8b0b0; 
+}
+
 /*! Styles for hiding scrollbar  */
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar::-webkit-scrollbar {
@@ -18,8 +58,9 @@ body {
 }
 
 @layer components {
-  .reset {
-    @apply rounded-lg px-2 py-2 text-xs bg-black hover:bg-red-700 transition-all duration-1000 ease-in-out  text-gray-100;
+  .lightTheme {
+    @apply rounded-lg px-4 py-1.5 font-medium outline-none duration-500 bg-black hover:bg-gray-900 hover:text-gray-100 
+     text-white dark:text-black  dark:hover:bg-gray-700  dark:bg-white dark:hover:text-white hover:animate-pulse
   }
   .navbar {
     @apply p-2 flex gap-1 items-center justify-center hover:bg-[#E53935] hover:text-black transition-all duration-500 ease-in-out 
@@ -37,4 +78,52 @@ body {
     md:placeholder:text-xs tracking-widest placeholder:font-medium
   }
   
+}
+
+/* for loading  */
+.spinner {
+  width: 11.2px;
+  height: 11.2px;
+  animation: spinner-o824ag 1s infinite linear;
+}
+
+.spinner div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #474bff;
+  border-radius: 50%;
+  animation: spinner-vse6n7 1.25s infinite ease;
+}
+
+.spinner div:nth-child(1) {
+  --rotation: 90;
+}
+
+.spinner div:nth-child(2) {
+  --rotation: 180;
+}
+
+.spinner div:nth-child(3) {
+  --rotation: 270;
+}
+
+.spinner div:nth-child(4) {
+  --rotation: 360;
+}
+
+@keyframes spinner-vse6n7 {
+  0%, 100% {
+     transform: rotate(calc(var(--rotation) * 1deg)) translateY(0);
+  }
+
+  50% {
+     transform: rotate(calc(var(--rotation) * 1deg)) translateY(300%);
+  }
+}
+
+@keyframes spinner-o824ag {
+  to {
+     transform: rotate(360deg);
+  }
 }

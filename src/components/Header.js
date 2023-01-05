@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { WalletCheckO } from "lovedicons/dist/outline";
 import { CiSearch } from "react-icons/ci"; // icons
-import { BiCameraMovie } from "react-icons/bi"; // icons
+import { SiFoodpanda } from "react-icons/si"; // icons
 import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs"; // icons
 import { searchAllInfo, searchInfo } from "../features/movieSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,8 +31,7 @@ const Header = ({ darkTheme, setDarkTheme }) => {
       navigate(`/searchMovies`);
     }
   };
-  // #FCFCFC
-  // #F7F7F7
+
   return (
     <main className="w-full">
       <header className="border dark:border-none shadow-2xl">
@@ -48,27 +47,39 @@ const Header = ({ darkTheme, setDarkTheme }) => {
                 setSearchQuery("");
               }}
             >
-             
-                <p className="flex gap-2 justify-center items-center font-semibold">
-                  <BiCameraMovie className=" dark:text-white text-black md:w-8 md:h-8 " />
-                  PandaFlix
-                </p>
-             
+              <p className="flex gap-2 justify-center items-center font-semibold">
+                <SiFoodpanda className=" dark:text-white text-black md:w-8 md:h-8 bounce" />
+                PandaFlix
+              </p>
             </div>
           </div>
           <div className="flex flex-wrap justify-center items-center">
             <div className="hidden md:flex ">
               <ul className="hidden md:flex px-2 mx-1 dark:text-white text-black cursor-pointer gap-3">
-                <li className="navbar" onClick={()=>{navigate('/')}}>
+                <li
+                  className="navbar"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
                   Home
                 </li>
-                <li className="navbar" onClick={()=>{navigate('/movielibrary')}}>
+                <li
+                  className="navbar"
+                  onClick={() => {
+                    navigate("/movielibrary");
+                  }}
+                >
                   Movies
                 </li>
-                <li className="navbar" onClick={()=>{navigate('/serieslibrary')}}>
-                Series
+                <li
+                  className="navbar"
+                  onClick={() => {
+                    navigate("/serieslibrary");
+                  }}
+                >
+                  Series
                 </li>
-               
               </ul>
             </div>
             <div className="flex justify-start items-center">
@@ -109,7 +120,7 @@ const Header = ({ darkTheme, setDarkTheme }) => {
                   peer-checked:bg-gray-300"
                 ></div>
               </label>
-              <span className="flex mr-4 text-sm font-medium text-gray-900">
+              <span className="flex mr-4 text-sm font-medium text-gray-900 animate-pulse">
                 {darkTheme ? (
                   <BsMoonStarsFill className="text-white w-4 h-4" />
                 ) : (

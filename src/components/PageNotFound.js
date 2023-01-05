@@ -10,7 +10,7 @@ const PageNotFound = () => {
         <p className="text-5xl pt-3 font-semibold tracking-widest">404</p>
         <p className="tracking-widest">Look like you're lost in the Wilderness.</p>
         <p className="tracking-widest">Some Pages are under Production Come back soon</p>
-        <button className="reset" onClick={()=> {
+        <button className="rounded-lg text-white font-light px-4 py-1.5 outline-none duration-500 bg-black hover:bg-gray-900" onClick={()=> {
           navigate('/')
         }}>Take me to Home Page</button>
       </div>

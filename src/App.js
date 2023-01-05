@@ -10,6 +10,7 @@ import MovieWorld from "./components/MovieWorld";
 import MovieInformation from "./components/MovieInformation";
 import MovieLibrary from "./pages/MovieLibrary";
 import TvLibrary from "./pages/TvLibrary";
+import Loading from "./components/loading";
 
 const movieAPI = "https://www.omdbapi.com";
 axios.defaults.baseURL = movieAPI;
@@ -20,7 +21,8 @@ const App = () => {
   const [nowPlaying, setNowPlaying] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [darkTheme, setDarkTheme] = useState(true);
-  return (
+  const [loading ,setLoading] = useState(false);
+   return (
     <div>
       <main className={darkTheme ? "dark" : ""}>
         <header className="dark:bg-[#151619] bg-[#FCFCFC]">
@@ -40,11 +42,24 @@ const App = () => {
                   setNowPlaying={setNowPlaying}
                   upcoming={upcoming}
                   setUpcoming={setUpcoming}
+                  loading={loading}
+                  setLoading={setLoading}
                 />
               }
             />
-            <Route path="/movielibrary" element={<MovieLibrary upcoming={upcoming}
-                  setUpcoming={setUpcoming} />} />
+            <Route
+              path="/movielibrary"
+              element={
+                <MovieLibrary
+                  upcoming={upcoming}
+                  setUpcoming={setUpcoming}
+                  popularMovies={popularMovies}
+                  setPopularMovies={setPopularMovies}
+                  loading={loading}
+                  setLoading={setLoading}
+                />
+              }
+            />
             <Route path="/serieslibrary" element={<TvLibrary />} />
             {/* <Route path="movie/:id" element={<MovieInformation />} /> */}
             <Route path="/searchMovies" element={<Home />} />
@@ -52,7 +67,10 @@ const App = () => {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </section>
-        <footer className="dark:bg-[#151619] bg-[#F7F7F7]"><Footer /></footer>
+        <footer className="dark:bg-[#151619] bg-[#F7F7F7]">
+         
+          <Footer />
+        </footer>
       </main>
     </div>
   );

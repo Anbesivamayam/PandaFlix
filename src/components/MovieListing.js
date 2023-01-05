@@ -35,7 +35,7 @@ const MovieListing = () => {
         </h2>
       </main>
       <section
-        className="pb-2 mx-auto p-3 py-4 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center 
+        className="pb-2 mx-auto px-5 py-4 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center 
       justify-center gap-4 bg-[#F3F3F3] dark:bg-[#0E0F11] "
       >
         {series.Response === "True" ? (

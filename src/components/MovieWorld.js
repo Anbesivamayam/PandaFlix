@@ -17,6 +17,8 @@ const MovieWorld = ({
   upcoming,
   setNowPlaying,
   setUpcoming,
+  loading,
+  setLoading
 }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // const [boolean, setBoolean] = useState(true);
@@ -90,6 +92,8 @@ const MovieWorld = ({
       });
   }, []);
   return (
+    <>
+ 
     <div className="h-full text-black dark:text-white dark:font-normal font-semibold ">
       <section className="">
         {console.log(window.innerWidth)}
@@ -115,7 +119,7 @@ const MovieWorld = ({
               <img
                 src={`https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`}
                 alt="title"
-                className="w-full h-full pb-16 md:pb-3 dark:opacity-[0.4] "
+                className="w-full h-full pb-16 md:pb-3 dark:opacity-[0.4] dark:animate-pulse "
               />
               <div className="mx-auto px-6 md:px-10 pb-8 md:pb-2 flex flex-col text-start absolute bottom-8 ">
                 <p className="text-2xl md:text-3xl lg:text-7xl">
@@ -173,7 +177,7 @@ const MovieWorld = ({
         </section>
       </main>
     </div>
-  );
+  </>);
 };
 
 export default MovieWorld;
