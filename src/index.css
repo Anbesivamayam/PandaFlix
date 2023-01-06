@@ -64,7 +64,7 @@ body {
   }
   .navbar {
     @apply p-2 flex gap-1 items-center justify-center hover:bg-[#E53935] hover:text-black transition-all duration-500 ease-in-out 
-     text-sm xl:text-base font-semibold accent-teal-400;
+     text-sm xl:text-base font-semibold accent-teal-400 ;
   }
   .miniTitle {
     @apply flex justify-center items-center gap-1 text-gray-700 dark:text-[#9CAAB3] font-medium tracking-wide text-sm md:text-base
@@ -73,9 +73,9 @@ body {
     @apply  dark:text-[#9CAAB3] font-semibold dark:font-medium tracking-wide text-sm md:text-base xl:text-xl
   }
    .searchBar{
-    @apply w-20 md:w-full p-1 md:p-1.5 rounded-lg  border-[1px] bg-[#F5F7FB] text-gray-700 border-gray-200
-    focus:text-gray-700 focus:outline-gray-100 text-sm placeholder:text-[10px] 
-    md:placeholder:text-xs tracking-widest placeholder:font-medium
+    @apply w-full py-1 p-1 md:p-1.5 rounded-lg  border-[1px] bg-[#F5F7FB] text-gray-700 border-gray-200
+    focus:text-gray-700 focus:outline-gray-100 text-sm placeholder:text-[8px] 
+    md:placeholder:text-xs tracking-widest placeholder:font-medium placeholder:text-start
   }
   
 }

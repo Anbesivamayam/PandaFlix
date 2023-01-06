@@ -10,7 +10,7 @@ import MovieWorld from "./components/MovieWorld";
 import MovieInformation from "./components/MovieInformation";
 import MovieLibrary from "./pages/MovieLibrary";
 import TvLibrary from "./pages/TvLibrary";
-import Loading from "./components/loading";
+import toast, { Toaster } from 'react-hot-toast';
 
 const movieAPI = "https://www.omdbapi.com";
 axios.defaults.baseURL = movieAPI;
@@ -76,6 +76,7 @@ const App = () => {
           <Footer />
         </footer>
       </main>
+      <Toaster  />
     </div>
   );
 };
