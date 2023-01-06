@@ -3,8 +3,8 @@ import { WalletCheckO } from "lovedicons/dist/outline";
 import { CiSearch } from "react-icons/ci"; // icons
 import { SiFoodpanda } from "react-icons/si"; // icons
 import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs"; // icons
-import { searchAllInfo, searchInfo } from "../features/movieSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { searchInfo } from "../features/movieSlice";
+import { useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ darkTheme, setDarkTheme }) => {
@@ -36,7 +36,7 @@ const Header = ({ darkTheme, setDarkTheme }) => {
     <main className="w-full">
       <header className="border dark:border-none shadow-2xl">
         <div
-          className={`py-1 lg:py-3 xl:py-6 flex justify-between items-center w-full `}
+          className={`py-1 lg:py-3 xl:py-4 flex flex-col md:flex-row md:justify-between items-center w-full `}
         >
           <div className="px-2 mx-1 flex items-center gap-1 rounded-lg">
             <div
@@ -53,9 +53,9 @@ const Header = ({ darkTheme, setDarkTheme }) => {
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center items-center">
-            <div className="hidden md:flex ">
-              <ul className="hidden md:flex px-2 mx-1 dark:text-white text-black cursor-pointer gap-3">
+          <div className="flex justify-center items-center">
+            <div className="flex ">
+              <ul className="flex px-2 mx-1 dark:text-white text-black cursor-pointer gap-3">
                 <li
                   className="navbar"
                   onClick={() => {

@@ -1,14 +1,13 @@
 import React from "react";
 
-const Pagination = ({ MoviePerPage, totalMovies, pagination, currentPage,handleClick }) => {
+const Pagination = ({ itemsPerPage, totalPages, pagination, currentPage,handleClick }) => {
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalMovies / MoviePerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalPages / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
-  //   console.log(pageNumbers);
   return (
     <main>
-      <ul className="flex flex-wrap gap-2 cursor-pointer justify-center items-center  ">
+      <ul className="flex flex-wrap gap-2 cursor-pointer  items-center  ">
         {pageNumbers.map((number) => (
           <li
             key={number}

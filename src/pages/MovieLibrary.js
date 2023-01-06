@@ -8,7 +8,6 @@ import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
 import { AiFillStar } from "react-icons/ai";
 import DetailMovieCard from "../components/DetailMovieCard";
 import Pagination from "../components/Pagination";
-import Loading from "../components/loading";
 
 const MovieLibrary = ({
   upcoming,
@@ -19,21 +18,24 @@ const MovieLibrary = ({
   loading,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [MoviePerPage, setMoviePerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
   const [dummy, setDummy] = useState([]);
   const movieRef = useRef(null)
 
-  const handleClick =()=>{
-    movieRef.current?.scrollIntoView({behavior: 'smooth'})
-  }
 // Logics to show how much content of items to show in page
-const indexOfLastMovie = currentPage * MoviePerPage;
-const indexOfFirstMovie = indexOfLastMovie - MoviePerPage;
-const currentMovie = popularMovies.slice(indexOfFirstMovie, indexOfLastMovie);
+const indexOfLastMovie = currentPage * itemsPerPage;
+const indexOfFirstMovie = indexOfLastMovie - itemsPerPage;
+let currentMovie = popularMovies.slice(indexOfFirstMovie, indexOfLastMovie);
 
 // Getting current page
 const pagination = (PageNumber) => setCurrentPage(PageNumber);
-  // Upcoming Movies
+
+// Calling an element inside div
+const handleClick =()=>{
+  movieRef.current?.scrollIntoView({behavior: 'smooth'})
+}
+
+  // Upcoming Movies fetching Data
   useEffect(() => {
     axios
       .get(
@@ -47,7 +49,7 @@ const pagination = (PageNumber) => setCurrentPage(PageNumber);
       });
   }, []);
 
-  // Popular Movies
+  // Popular Movies fetching data
   useEffect(() => {
     setLoading(true);
     axios
@@ -55,7 +57,6 @@ const pagination = (PageNumber) => setCurrentPage(PageNumber);
         `https://api.themoviedb.org/3/movie/popular?api_key=f870259c0e2838b7a85074234dc46809&language=en-US&page=${currentPage}`
       )
       .then((response) => {
-        // setLoading(true);
         setDummy(response.data.total_results);
         setPopularMovies(response.data.results);
       })
@@ -69,7 +70,6 @@ const pagination = (PageNumber) => setCurrentPage(PageNumber);
       });
   }, [currentPage]);
  
-
   return (
     <>
       <div className="h-full text-black dark:text-white dark:font-normal font-semibold ">
@@ -120,15 +120,15 @@ const pagination = (PageNumber) => setCurrentPage(PageNumber);
           </Carousel>
         </section>
         <section>
-          <h3 className="px-5 py-3">Upcoming Movies</h3>
-          <main className="mx-auto flex pb-2 px-6 gap-2 overflow-x-auto scrollbar ">
+          <h3 className="px-5 xl:px-8  py-3">Upcoming Movies</h3>
+          <main className="mx-auto flex pb-2 px-6 xl:px-6 gap-2 xl:gap-4 overflow-x-auto scrollbar ">
             {upcoming.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}
           </main>
         </section>
         <section ref={movieRef}>
-          <h3 className="px-5 py-3"> All Movies </h3>
+          <h3 className="px-5 xl:px-8  py-3"> All Movies </h3>
           <main className="grid md:grid-cols-3 lg:grid-cols-5 pb-6 gap-4 mx-auto px-6 ">
             {popularMovies.map((movie, index) => {
               return (
@@ -137,7 +137,7 @@ const pagination = (PageNumber) => setCurrentPage(PageNumber);
             })}
           </main>
         </section>
-        <div className="mx-auto px-6 py-3 flex justify-center items-center  gap-4">
+        <div className="mx-auto px-6 py-3 flex flex-wrap justify-center items-center  gap-4">
           <button
             className="lightTheme"
             disabled={currentPage === 1}
@@ -150,9 +150,9 @@ const pagination = (PageNumber) => setCurrentPage(PageNumber);
             Prev
           </button>
           <Pagination
-            MoviePerPage={MoviePerPage}
+            itemsPerPage={itemsPerPage}
             currentPage={currentPage}
-            totalMovies={150}
+            totalPages={380}
             pagination={pagination}
             handleClick={handleClick}
           />
@@ -164,7 +164,7 @@ const pagination = (PageNumber) => setCurrentPage(PageNumber);
             }       
             }
           >
-            Next{" "}
+            Next
           </button>
         </div>
       </div>

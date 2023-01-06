@@ -1,14 +1,8 @@
 import React from "react";
 import Loading from "./loading";
-import ErrorImage from "../images/404Error.gif"
+import ErrorImage from "../images/404Error.gif";
 
-const DetailMovieCard = ({
-  poster_path,
-  title,
-  loading,
-  name,
-  id,
-}) => {
+const DetailMovieCard = ({ poster_path, title, loading, name, id }) => {
   const getPosterURL = (posterPath) => {
     // return `https://www.themoviedb.org/t/p/w220_and_h330_face${posterPath}`;
     return `https://www.themoviedb.org/t/p/w400${posterPath}`;
@@ -21,20 +15,28 @@ const DetailMovieCard = ({
     >
       <main className=" gap-2 ">
         <section className="">
-         <div>
-         {loading? <div className="mx-auto px-4 flex justify-center items-center w-[220px] h-[360px]"><Loading/></div>: 
-         <img
-            // src={ ErrorImage }
-            src={poster_path ==null ? ErrorImage : getPosterURL(poster_path)}
-            alt={title}
-            className=" w-[272px] h-[360px] shadow-sm dark:rounded-lg "
-          />
-  }
-         </div>
-          <main className="flex flex-col px-2 py-3 text-sm ">
-            <p className=" text-center font-semibold ">{title || name}</p>
+          <div>
+            {loading ? (
+              <div className="mx-auto px-4 flex justify-center items-center w-[220px] h-[360px] xl:w-[340px] xl:h-[360px]">
+                <Loading />
+              </div>
+            ) : (
+              <img
+                // src={ ErrorImage }
+                src={
+                  poster_path == null ? ErrorImage : getPosterURL(poster_path)
+                }
+                alt={title}
+                className=" w-[272px] h-[360px] xl:w-[360px] xl:h-[480px] shadow-sm dark:rounded-lg "
+              />
+            )}
+          </div>
+          <main className="flex flex-col px-2 py-3 xl:py-6 text-sm ">
+            <p className=" text-center font-semibold xl:text-base">
+              {title || name}
+            </p>
           </main>
-        </section>       
+        </section>
       </main>
     </div>
   );

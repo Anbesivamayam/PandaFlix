@@ -5,7 +5,6 @@ import { AiFillStar } from "react-icons/ai";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
-import { data } from "autoprefixer";
 import { useNavigate } from "react-router-dom";
 
 const MovieWorld = ({
@@ -36,7 +35,7 @@ const MovieWorld = ({
   useEffect(() => {
     window.addEventListener("resize", setWindowWidth(window.innerWidth));
     // console.log(windowWidth);
-    console.log(topRated);
+    // console.log(topRated);
   });
 
   // Upcoming Movies
@@ -96,7 +95,7 @@ const MovieWorld = ({
  
     <div className="h-full text-black dark:text-white dark:font-normal font-semibold ">
       <section className="">
-        {console.log(window.innerWidth)}
+        
         <Carousel
           showThumbs={false}
           autoPlay={true}
@@ -144,32 +143,32 @@ const MovieWorld = ({
       </section>
       <main>
         <section>
-          <h3 className="px-5 py-3">Upcoming Movies</h3>
-          <main className="flex pb-2  px-5 gap-2 overflow-x-auto scrollbar">
+          <h3 className="px-5 xl:px-8 py-3">Upcoming Movies</h3>
+          <main className="flex pb-2 px-5 xl:px-6 gap-2 xl:gap-4 overflow-x-auto scrollbar">
             {upcoming.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}
           </main>
         </section>
         <section>
-          <h3 className="px-5 py-3">Now Playing</h3>
-          <main className="flex pb-5  px-5 gap-2 overflow-x-auto scrollbar">
+          <h3 className="px-5 xl:px-8 py-3">Now Playing</h3>
+          <main className="flex pb-5 px-5 xl:px-6 gap-2 xl:gap-4 overflow-x-auto scrollbar">
             {nowPlaying.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}
           </main>
         </section>
         <section>
-          <h3 className="px-5 py-3">Top Rated</h3>
-          <main className=" flex pb-5 px-5 gap-2 overflow-x-auto scrollbar">
+          <h3 className="px-5 xl:px-8 py-3">Top Rated</h3>
+          <main className=" flex pb-5 px-5 xl:px-6 gap-2 xl:gap-4 overflow-x-auto scrollbar">
             {topRated.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}
           </main>
         </section>
         <section>
-          <h3 className="px-5 py-3">Popular Movies</h3>
-          <main className="flex pb-5 px-5 gap-2 overflow-x-auto scrollbar">
+          <h3 className="px-5 xl:px-8 py-3">Popular Movies</h3>
+          <main className="flex pb-5 px-5 xl:px-6 gap-2 xl:gap-4 overflow-x-auto scrollbar">
             {popularMovies.map((movie, index) => {
               return <Movies key={index} {...movie} />;
             })}

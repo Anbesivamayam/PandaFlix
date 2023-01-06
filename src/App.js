@@ -21,8 +21,8 @@ const App = () => {
   const [nowPlaying, setNowPlaying] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [darkTheme, setDarkTheme] = useState(true);
-  const [loading ,setLoading] = useState(false);
-   return (
+  const [loading, setLoading] = useState(false);
+  return (
     <div>
       <main className={darkTheme ? "dark" : ""}>
         <header className="dark:bg-[#151619] bg-[#FCFCFC]">
@@ -60,15 +60,19 @@ const App = () => {
                 />
               }
             />
-            <Route path="/serieslibrary" element={<TvLibrary />} />
+            <Route path="/serieslibrary" element={<TvLibrary loading={loading} setLoading={setLoading} />} />
             {/* <Route path="movie/:id" element={<MovieInformation />} /> */}
             <Route path="/searchMovies" element={<Home />} />
-            <Route path="/movie/:imdbID" element={<MovieDetail />} />
+            <Route
+              path="/movie/:imdbID"
+              element={
+                <MovieDetail loading={loading} setLoading={setLoading} />
+              }
+            />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </section>
         <footer className="dark:bg-[#151619] bg-[#F7F7F7]">
-         
           <Footer />
         </footer>
       </main>

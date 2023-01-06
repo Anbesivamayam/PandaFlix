@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import MovieListing from "./MovieListing";
 import axios from "axios";
-import movieApi from "../api/movieApi";
 import { APIKey, name } from "../api/MovieApiKey";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -19,7 +18,7 @@ const Home = () => {
     axios
       .get(`?apiKey=${APIKey}&s=${search}&type=movie`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         dispatch(addMovies(res.data));
       })
       .catch((err) => {
@@ -36,8 +35,9 @@ const Home = () => {
         console.log(err);
       });
   }, [search]);
+ 
   return (
-    <div className="h-screen">
+    <div className="h-full">
       <MovieListing />
     </div>
   );
