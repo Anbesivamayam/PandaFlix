@@ -164,7 +164,7 @@ const Header = ({ darkTheme, setDarkTheme }) => {
       </header>
 
       <section
-        className={`${showNav ? "md:hidden w-full h-screen": "h-1 opacity-0"} px-2 py-1 transition-all ease-in duration-500`}
+        className={`${showNav ? "md:hidden w-full h-screen": "h-1 opacity-0"} px-2 py-1 md:py-0 transition-all ease-in duration-500`}
       >
         <div className="flex ">
           <ul className="w-full flex flex-col px-2 py-3 mx-1 dark:text-white text-black cursor-pointer gap-3">
