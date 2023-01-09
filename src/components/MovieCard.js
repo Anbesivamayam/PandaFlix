@@ -10,7 +10,7 @@ const MovieCard = ({ data }) => {
 
   return (
     <div className="mx-auto flex cursor-pointer hover:opacity-[0.8] dark:hover:opacity-[0.6] hover:bg-blend-color-dodge 
-    transistion-all ease-in-out duration-500 hover:translate-y-1 xl:hover:translate-y-2">
+    transistion-all ease-in-out duration-500 hover:translate-y-1 xl:hover:translate-y-2 ">
       <main className="flex flex-col " onClick={onCardClick}>
         <div className="text-center">
           <img

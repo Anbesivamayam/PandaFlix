@@ -8,7 +8,7 @@ const MovieListing = () => {
   const movies = useSelector(getAllMovies);
   const series = useSelector(getAllSeries);
   return (
-    <div className={`${movies.length >= 0 ? "h-screen" : "h-full"}`}>
+    <div className={`${movies.length >= 0 ? "h-screen " : "h-full 4k:h-screen"}`}>
       <main className="">
         <main>
           <h2 className="mx-auto px-6 xl:px-8 py-4 xl:py-6 text-bold text-2xl font-medium text-black dark:text-white dark:bg-[#0E0F11] bg-[#F7F7F7]">
@@ -17,7 +17,7 @@ const MovieListing = () => {
         </main>
         <section
           className="mx-auto px-5 py-2 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 dark:bg-[#0E0F11] 
-          bg-[#F7F7F7] justify-center gap-4 h-full"
+          bg-[#F7F7F7] justify-center gap-4 h-full 4k:h-screen"
         >
           {movies.Response === "True" &&
             movies.Search.map((movie, index) => {
@@ -49,7 +49,7 @@ const MovieListing = () => {
 
          <section
           className="mx-auto px-5 py-2 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 dark:bg-[#0E0F11] bg-[#F7F7F7]
-       justify-center gap-4 h-full"
+       justify-center gap-4 h-full 4k:h-screen"
         >
           {series.Response === "True" &&
             series.Search.map((movie, index) => {

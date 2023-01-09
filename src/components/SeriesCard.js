@@ -9,7 +9,7 @@ const SeriesCard = ({ data }) => {
   };
   return (
     <div>
-      <div className="mx-auto flex justify-center items-center cursor-pointer hover:opacity-[0.8] dark:hover:opacity-[0.5] 
+      <div className="mx-auto pb-12 flex justify-center items-center cursor-pointer hover:opacity-[0.8] dark:hover:opacity-[0.5] 
       hover:bg-blend-color-dodge transistion-all ease-in-out duration-1000 hover:translate-y-1 xl:hover:translate-y-2">
       <main className="flex flex-col " onClick={onCardClick}>
         <div className="text-center">

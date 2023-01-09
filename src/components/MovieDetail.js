@@ -44,7 +44,7 @@ const MovieDetail = ({ loading, setLoading }) => {
         </div>
       ) :
        (
-        <div className="dark:bg-[#0E0F11] bg-[#F7F7F7] w-full h-screen">
+        <div className="dark:bg-[#0E0F11] bg-[#F7F7F7] w-full h-full 4k:h-screen">
           <main className="mx-auto flex flex-col-reverse  gap-3 px-6 py-7 md:px-8 md:py-12 xl:py-16 md:grid md:grid-cols-4 items-center justify-center text-black dark:text-white">
             <section className="p-3 rounded-xl shadow-xl flex flex-col justify-center col-span-3 gap-3 dark:font-light bg-[#F7F7F7] dark:bg-[#151619]">
               <h2 className="text-2xl py-2 md:text-5xl xl:text-6xl tracking-normal">
