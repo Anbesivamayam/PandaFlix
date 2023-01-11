@@ -88,6 +88,14 @@ const Header = ({ darkTheme, setDarkTheme }) => {
                 >
                   Series
                 </li>
+                <li
+                  className="navbar"
+                  onClick={() => {
+                    navigate("/pricing");
+                  }}
+                >
+                  Pricing
+                </li>
               </ul>
             </div>
             <div className="flex justify-start items-center px-2">
@@ -198,10 +206,19 @@ const Header = ({ darkTheme, setDarkTheme }) => {
             <li
               className="navbar border-2 hover:translate-x-3"
               onClick={() => {
+                navigate("/pricing");
                 setShowNav(false);
               }}
             >
-              <a href='https://www.linkedin.com/in/arunprasad007' target={"_blank"}> Contact Me</a>
+              Pricing
+            </li>
+            <li
+              className="navbar border-2 hover:translate-x-3"
+              onClick={() => {
+                setShowNav(false);
+              }}
+            >
+              <a href='https://www.linkedin.com/in/arunprasad007' target={"_blank"}> Contact Dev</a>
               
             </li>
             <li

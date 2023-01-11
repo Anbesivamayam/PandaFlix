@@ -11,6 +11,7 @@ import MovieInformation from "./components/MovieInformation";
 import MovieLibrary from "./pages/MovieLibrary";
 import TvLibrary from "./pages/TvLibrary";
 import toast, { Toaster } from 'react-hot-toast';
+import Razorpay from "./components/Razorpay";
 
 const movieAPI = "https://www.omdbapi.com";
 axios.defaults.baseURL = movieAPI;
@@ -69,6 +70,7 @@ const App = () => {
                 <MovieDetail loading={loading} setLoading={setLoading} />
               }
             />
+            <Route path="/pricing" element={<Razorpay />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </section>
